@@ -1,4 +1,4 @@
-package com.panch.appserver;
+package com.panch.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
