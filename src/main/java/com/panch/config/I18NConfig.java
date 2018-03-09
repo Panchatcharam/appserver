@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
+import java.util.concurrent.TimeUnit;
+
 @Configuration
 public class I18NConfig {
 
@@ -11,8 +13,10 @@ public class I18NConfig {
     public ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource resourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
         resourceBundleMessageSource.setBasename("classpath:i18n/messages");
-        // Checks for new messages every 30 minutes
-        resourceBundleMessageSource.setCacheSeconds(1800);
+        resourceBundleMessageSource.setUseCodeAsDefaultMessage(true);
+        resourceBundleMessageSource.setDefaultEncoding("UTF-8");
+        resourceBundleMessageSource.setFallbackToSystemLocale(false);
+        resourceBundleMessageSource.setCacheSeconds((int) TimeUnit.HOURS.toSeconds(1));
         return resourceBundleMessageSource;
     }
 
