@@ -30,7 +30,7 @@ public class FeedbackPojo implements Serializable {
         return lastName;
     }
 
-    public void setLastName(String lastNAme) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
